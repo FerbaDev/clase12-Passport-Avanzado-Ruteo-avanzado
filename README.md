@@ -7,26 +7,10 @@ inicio de proyecto ------------------- 00:07
 armando formulario de login ---------- 00:17
 instalando jwt ----------------------- 00:24
 nuevas rutas en app, login ----------- 00:26
+trabajando index.js ------------------ 00:32
+enviando token con cookies -----------
 
-
-dejé en 00:30
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+dejé en 00:53
 
 (req, res) => {}
 
