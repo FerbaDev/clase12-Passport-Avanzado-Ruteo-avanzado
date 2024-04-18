@@ -4,3 +4,8 @@ inicio de proyecto ------------------- 00:07
 
 ## Passport Avanzado
 
+(req, res) => {}
+
+() => {}
+
+`string text ${expression}`
