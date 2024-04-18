@@ -15,7 +15,17 @@ app.post("/login", (req, res) => {
   if (user === "fer" && pass === "barron") {
     //generamos el token
     let token = jwt.sign({ user, pass }, "coderhouse", { expiresIn: "24h" });
-    res.send({ message: "Login exitoso", token: token });
+    //res.send({ message: "Login exitoso", token: token }); se comenta para usar cookie
+
+    //enviar token desde cookie
+    res
+      .cookie("coderCookieToken", token, {
+        maxAge: 60 * 60 * 1000,
+        httpOnly: true,
+      })
+      .send({ message: "Login exitoso" });
+    //60*60*1000  representa una hora en milisegundos.
+    //La opción httpOnly es una medida de seguridad que indica que la cookie solo se puede acceder a traves del protocolo HTTP y no mediante JS en el navegador.
   } else {
     res.send("Login fallido");
   }

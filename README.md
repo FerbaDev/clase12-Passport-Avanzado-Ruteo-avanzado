@@ -8,9 +8,10 @@ armando formulario de login ---------- 00:17
 instalando jwt ----------------------- 00:24
 nuevas rutas en app, login ----------- 00:26
 trabajando index.js ------------------ 00:32
-enviando token con cookies -----------
+instalando cookie parser ------------- 01:06 npm i cookie-parser
+enviando token desde cookie ---------- 01:08
 
-dejé en 00:53
+dejé en 00:53 darle npm i
 
 (req, res) => {}
 
