@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const PUERTO = 8080;
+const jwt = require("jsonwebtoken");
 
 //Middleware
 
@@ -9,8 +10,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./src/public"));
 
 //Rutas
-app.get("/", (req, res) => {
-    res.send("Conecta")
+app.post("/", (req, res) => {
+    let {user, pass} = req.body;
+    if (user === "fer" && pass === "barron") {
+        //generamos el token
+        let token = jwt.sign({user, pass}, "coderhouse", {expiresIn: "24h"});
+        res.send({message: "Login exitoso", token: token});
+    } else {
+        res.send("Login fallido")
+    }
 })
 
 
