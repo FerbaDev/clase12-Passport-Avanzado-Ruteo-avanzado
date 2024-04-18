@@ -2,12 +2,19 @@ const express = require("express");
 const app = express();
 const PUERTO = 8080;
 const jwt = require("jsonwebtoken");
+const initializePassport = require("./config/passport.config.js");
+const passport = require("passport");
+const cookieParser = require("cookie-parser");
 
 //Middleware
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("./src/public"));
+//middleware de passport y cookie parser
+app.use(cookieParser());
+app.use(passport.initialize());
+initializePassport();
 
 //Rutas
 app.post("/login", (req, res) => {
@@ -30,6 +37,8 @@ app.post("/login", (req, res) => {
     res.send("Login fallido");
   }
 });
+
+//Armamos la ruta current a la cual tenemos que acceder si nos identificamos.
 
 //Listen
 app.listen(PUERTO, () => {

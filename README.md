@@ -11,8 +11,10 @@ trabajando index.js ------------------ 00:32
 instalando cookie parser ------------- 01:06 npm i cookie-parser
 enviando token desde cookie ---------- 01:08
 estraegia con passport en config ----- 01:18 npm i passport passport-jwt
+trabajando cooke extractor ----------- 01:27
+middlewares en app.js ---------------- 01:30
 
-dejé en 00:53 darle npm i
+dejé en 01:33
 
 (req, res) => {}
 
