@@ -14,7 +14,7 @@ app.post("/login", (req, res) => {
   let { user, pass } = req.body;
   if (user === "fer" && pass === "barron") {
     //generamos el token
-    let token = jwt.sign({ user, pass }, "coderhouse", { expiresIn: "24h" });
+    let token = jwt.sign({ user, pass }, "coderhouse", { expiresIn: "24h" }); //"coderhouse" es la palabra cecreta
     //res.send({ message: "Login exitoso", token: token }); se comenta para usar cookie
 
     //enviar token desde cookie
