@@ -1,0 +1,18 @@
+{
+  "name": "clase12-passport-avanzado-ruteo-avanzado",
+  "version": "1.0.0",
+  "description": "inicio de proyecto ------------------- 00:07",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
