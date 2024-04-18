@@ -9,7 +9,7 @@ instalando jwt ----------------------- 00:24
 nuevas rutas en app, login ----------- 00:26
 
 
-
+dejé en 00:30
 
 
 
