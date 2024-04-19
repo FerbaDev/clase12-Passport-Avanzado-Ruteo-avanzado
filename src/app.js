@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const initializePassport = require("./config/passport.config.js");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
+const { passportCall } = require("./utils/util.js");
 
 //Middleware
 
@@ -38,7 +39,15 @@ app.post("/login", (req, res) => {
   }
 });
 
-//Armamos la ruta current a la cual tenemos que acceder si nos identificamos.
+// //Armamos la ruta current a la cual tenemos que acceder si nos identificamos.
+// app.get("/current", passport.authenticate("jwt", {session: false}), (req, res) => {
+//   res.send(req.user)
+// })
+
+//Usando el passportCall
+app.get("/current", passportCall("jwt"), passport.authenticate("jwt", {session: false}), (req, res) => {
+  res.send(req.user)
+})
 
 //Listen
 app.listen(PUERTO, () => {
