@@ -16,7 +16,17 @@ const passportCall = (strategy) => {
     }
 }
 
+const authorization = (role) => {
+    return async( req, res, next) => {
+        if(req.user.role !== role) {
+            return res.status(403).send({message: "Ingreso no permitido"});
+        }
+        next();
+    }
+}
+
 
 module.exports = {
-    passportCall
+    passportCall,
+    authorization
 }

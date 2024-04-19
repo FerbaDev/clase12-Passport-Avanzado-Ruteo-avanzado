@@ -15,9 +15,11 @@ trabajando cookie extractor ---------- 01:27
 middlewares en app.js ---------------- 01:30
 ruta current ------------------------- 01:34
 creando un custom passportCall ------- 01:43
+middleware de authorization ---------- 02:35
 
 
-dejé en 01:33
+
+dejé en 02:41
 
 (req, res) => {}
 

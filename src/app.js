@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const initializePassport = require("./config/passport.config.js");
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
-const { passportCall } = require("./utils/util.js");
+const { passportCall, authorization } = require("./utils/util.js");
 
 //Middleware
 
@@ -22,9 +22,11 @@ app.post("/login", (req, res) => {
   let { user, pass } = req.body;
   if (user === "fer" && pass === "barron") {
     //generamos el token
-    let token = jwt.sign({ user, pass }, "coderhouse", { expiresIn: "24h" }); //"coderhouse" es la palabra cecreta
+    //let token = jwt.sign({ user, pass }, "coderhouse", { expiresIn: "24h" }); //"coderhouse" es la palabra cecreta
     //res.send({ message: "Login exitoso", token: token }); se comenta para usar cookie
 
+    //Modificacion para utilizar el middleware "authorization":
+    let token = jwt.sign({ usuario, pass, role: "admin" }, "coderhouse", { expiresIn: "24h" });
     //enviar token desde cookie
     res
       .cookie("coderCookieToken", token, {
@@ -45,7 +47,7 @@ app.post("/login", (req, res) => {
 // })
 
 //Usando el passportCall
-app.get("/current", passportCall("jwt"), passport.authenticate("jwt", {session: false}), (req, res) => {
+app.get("/current", passportCall("jwt"), authorization("user"), (req, res) => {
   res.send(req.user)
 })
 
